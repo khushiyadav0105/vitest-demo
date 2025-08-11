@@ -30,8 +30,9 @@ jobs:
       - name: Start App
         run: npm run dev &
         env:
-          CI: true
+         CI: true
 
+         
       # Wait until app is available
       - name: Wait for App
         run: npx wait-on http://localhost:5173
