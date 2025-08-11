@@ -22,21 +22,16 @@ jobs:
       - name: Run Vitest
         run: npm run test
 
-      # Install Playwright Browsers
-      - name: Install Playwright Browsers
+      # Install Playwright browsers
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # Start Vite dev server in background
-      - name: Start App
-        run: npm run dev &
-        env:
-         CI: true
-
-         
-      # Wait until app is available
-      - name: Wait for App
-        run: npx wait-on http://localhost:5173
+      # Start Vite dev server in background & wait for it
+      - name: Start and wait for app
+        run: |
+          npm run dev &
+          npx wait-on http://localhost:5173
 
       # Run Playwright E2E tests
-      - name: Run E2E Tests
+      - name: Run E2E tests
         run: npm run test:e2e
