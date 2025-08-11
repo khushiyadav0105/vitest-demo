@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import Counter from './Counter'
+import Counter from './counter';
 
 describe('Counter component', () => {
   it('increments when button is clicked', () => {
